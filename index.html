@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Mohammed Fazal Basha</title>
+    
+    <!-- Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --red: #FF3131;
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- SECTION 1: THE HERO --- */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('banner.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .giant-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 15vw;
+            line-height: 0.8;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            z-index: 1;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            max-width: 600px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* --- SECTION 2: INTRODUCTION --- */
+        .intro-section {
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-heading {
+            font-family: 'Anton', sans-serif;
+            font-size: 8vw;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .red-dot {
+            width: 300px;
+            height: 300px;
+            background-color: var(--red);
+            border-radius: 50%;
+            position: absolute;
+            z-index: -1;
+            right: -50px;
+        }
+
+        /* --- SECTION 3: EDUCATION & PROJECTS --- */
+        .education-section {
+            padding: 100px 5%;
+            background-color: #111;
+        }
+
+        .edu-item {
+            margin-bottom: 50px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        .edu-year { color: var(--red); font-weight: bold; }
+
+        /* --- UTILITY --- */
+        .nav-header {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5%;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .intro-grid { grid-template-columns: 1fr; }
+            .giant-text { font-size: 25vw; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-header">
+        <div>Creative Portfolio</div>
+        <div>May 03, 2026</div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <h1 class="giant-text" data-aos="zoom-in" data-aos-duration="1500">PORTFOLIO</h1>
+        <p class="hero-sub" data-aos="fade-up" data-aos-delay="500">
+            Mohammed Fazal Basha. BCA Graduate specializing in AI & Data Science. 
+            Bridging technical innovation with strategic communication.
+        </p>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro-section">
+        <div class="intro-grid">
+            <div data-aos="fade-right">
+                <h2 class="intro-heading">Hello, I'm <br> <span style="color:var(--red)">Fazal Basha</span></h2>
+                <p style="margin-top:20px; font-size: 1.1rem;">
+                    From IoT safety systems like PAW CROSS to localized brand strategies at Idam Natural Wellness, 
+                    I focus on high-impact digital solutions.
+                </p>
+            </div>
+            <div style="position:relative;" data-aos="fade-left">
+                <div class="red-dot"></div>
+                <!-- You can replace this placeholder with a professional photo of yourself -->
+                <img src="https://via.placeholder.com/400x500" alt="Profile" style="width:100%; filter: grayscale(100%);">
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="education-section">
+        <h2 class="intro-heading" style="font-size:5vw; margin-bottom:50px;" data-aos="fade-up">My Education</h2>
+        
+        <div class="edu-item" data-aos="fade-up">
+            <div class="edu-year">2023 - 2026</div>
+            <h3>BCA (AI & Data Science)</h3>
+            <p>Dr. M.G.R Educational and Research Institute, Chennai</p>
+        </div>
+
+        <div class="edu-item" data-aos="fade-up">
+            <div class="edu-year">2022 - 2023</div>
+            <h3>Higher Secondary (12th Grade)</h3>
+            <p>Everwin Matriculation Higher Secondary School, Kolathur</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="padding: 50px 5%; text-align: center; border-top: 1px solid #333;">
+        <p>© 2026 Mohammed Fazal Basha | Chennai, India</p>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    </script>
+</body>
+</html>
