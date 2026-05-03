@@ -1,181 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohammed Fazal Basha | AI & Data Science Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Mohammed Fazal Basha</title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #FF3131;
+            --black: #000000;
+            --white: #FFFFFF;
+        }
 
-<style>
-:root { --red:#FF3131; --black:#000; --white:#FFF; --gray:#1a1a1a;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--black);color:var(--white);font-family:'Inter';overflow-x:hidden;}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-.nav-header{position:fixed;top:20px;width:100%;display:flex;justify-content:space-between;padding:0 5%;font-size:0.8rem;text-transform:uppercase;z-index:1000;background:rgba(0,0,0,0.5);backdrop-filter:blur(5px);}
-.nav-header a{color:white;text-decoration:none;margin-left:15px;}
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-.hero-section{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),url('banner.png');background-size:cover;text-align:center;}
-.giant-text{font-family:'Anton';font-size:18vw;color:var(--red);}
-.hero-sub{font-size:1.1rem;max-width:800px;}
+        /* --- HEADER NAV --- */
+        .nav-header {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5%;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            z-index: 1000;
+            letter-spacing: 2px;
+        }
 
-section{padding:100px 5%;}
-.section-heading{font-family:'Anton';font-size:8vw;margin-bottom:50px;}
+        /* --- PAGE 1: HERO --- */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            /* Matches the blurred/darkened background of the template */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('banner.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
-.intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;}
-.red-circle{width:350px;height:350px;background:var(--red);border-radius:50%;position:absolute;}
-.profile-img{max-width:450px;filter:grayscale(100%);}
+        .giant-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 18vw;
+            line-height: 0.8;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: -5px;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
 
-.content-card{border-top:1px solid #333;padding:40px 0;}
-.date-label{color:var(--red);}
-.card-title{font-size:2rem;}
-ul{list-style:none;}
-ul li{margin-bottom:10px;padding-left:20px;}
-ul li::before{content:"—";position:absolute;color:var(--red);margin-left:-20px;}
+        .hero-sub {
+            font-size: 1.1rem;
+            max-width: 700px;
+            text-align: center;
+            padding: 0 20px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
 
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-.skill-cat h4{color:var(--red);}
-.tag{background:#111;border:1px solid #333;padding:5px 12px;margin:5px;display:inline-block;}
+        /* --- PAGE 2: INTRODUCTION --- */
+        .intro-section {
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+        }
 
-footer{text-align:center;padding:80px 5%;}
-.contact-link{font-size:2rem;color:white;margin:0 20px;}
-</style>
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .intro-heading {
+            font-family: 'Anton', sans-serif;
+            font-size: 9vw;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .profile-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .red-dot {
+            width: 350px;
+            height: 350px;
+            background-color: var(--red);
+            border-radius: 50%;
+            position: absolute;
+            z-index: 0;
+            right: 0;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 450px;
+            z-index: 1;
+            filter: grayscale(100%) contrast(110%);
+            transition: 0.5s ease;
+        }
+        
+        .profile-img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* --- PAGE 3: EDUCATION --- */
+        .education-section {
+            padding: 100px 5%;
+            background-color: #080808;
+            min-height: 100vh;
+        }
+
+        .edu-item {
+            margin-bottom: 40px;
+            border-top: 1px solid #222;
+            padding-top: 25px;
+            transition: 0.3s;
+        }
+        
+        .edu-item:hover {
+            border-top-color: var(--red);
+        }
+
+        .edu-year { color: var(--red); font-weight: 700; margin-bottom: 5px; }
+        .edu-title { font-size: 1.8rem; font-weight: 700; text-transform: uppercase; }
+
+        footer {
+            padding: 60px 5%;
+            text-align: center;
+            border-top: 1px solid #222;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .intro-grid { grid-template-columns: 1fr; text-align: center; }
+            .giant-text { font-size: 25vw; }
+            .red-dot { width: 250px; height: 250px; left: 50%; transform: translateX(-50%); }
+            .intro-heading { font-size: 15vw; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="nav-header">
-<div>MFB // PORTFOLIO</div>
-<div>
-<a href="#about">About</a>
-<a href="#experience">Experience</a>
-<a href="#projects">Projects</a>
-</div>
-</div>
+    <div class="nav-header">
+        <div>Creative Portfolio</div>
+        <div>May 03, 2026</div>
+    </div>
 
-<section class="hero-section">
-<h1 class="giant-text" data-aos="zoom-out">PORTFOLIO</h1>
-<p class="hero-sub" data-aos="fade-up">
-Mohammed Fazal Basha — AI & Data Science Specialist
-</p>
-</section>
+    <!-- PAGE 1: HERO -->
+    <section class="hero-section">
+        <h1 class="giant-text" data-aos="zoom-out" data-aos-duration="1500">PORTFOLIO</h1>
+        <p class="hero-sub" data-aos="fade-up" data-aos-delay="600">
+            Mohammed Fazal Basha. BCA Graduate specializing in AI & Data Science. 
+            Bridging technical innovation with strategic communication.
+        </p>
+    </section>
 
-<!-- ABOUT -->
-<section id="about">
-<div class="intro-grid">
-<div data-aos="fade-right">
-<h2 class="section-heading">HELLO, I'M FAZAL</h2>
+    <!-- PAGE 2: ABOUT / IMAGE ON RIGHT -->
+    <section class="intro-section">
+        <div class="intro-grid">
+            <div data-aos="fade-right">
+                <h2 class="intro-heading">HELLO, I'M <br> <span style="color:var(--red)">FAZAL BASHA</span></h2>
+                <p style="margin-top:30px; font-size: 1.2rem; line-height: 1.6; opacity: 0.8;">
+                    From IoT safety systems like PAW CROSS to localized brand strategies at Idam Natural Wellness, 
+                    I focus on high-impact digital solutions that solve real-world problems.
+                </p>
+            </div>
+            <div class="profile-container" data-aos="fade-left">
+                <div class="red-dot"></div>
+                <img src="profile.png" alt="Mohammed Fazal Basha" class="profile-img">
+            </div>
+        </div>
+    </section>
 
-<!-- SKILLS -->
-<div class="skills-grid">
+    <!-- PAGE 3: EDUCATION -->
+    <section class="education-section">
+        <h2 class="intro-heading" style="font-size:6vw; margin-bottom:60px;" data-aos="fade-up">MY EDUCATION</h2>
+        
+        <div class="edu-item" data-aos="fade-up">
+            <div class="edu-year">2023 - 2026</div>
+            <div class="edu-title">BCA (AI & Data Science)</div>
+            <p>Dr. M.G.R Educational and Research Institute, Chennai</p>
+        </div>
 
-<div class="skill-cat" data-aos="fade-up">
-<h4>Programming</h4>
-<span class="tag">Python</span>
-<span class="tag">Java</span>
-<span class="tag">C++</span>
-<span class="tag">SQL</span>
-<span class="tag">RDBMS</span>
-</div>
+        <div class="edu-item" data-aos="fade-up">
+            <div class="edu-year">2022 - 2023</div>
+            <div class="edu-title">Higher Secondary (12th Grade)</div>
+            <p>Everwin Matriculation Higher Secondary School, Kolathur, Chennai</p>
+        </div>
 
-<div class="skill-cat" data-aos="fade-up" data-aos-delay="100">
-<h4>AI & Cloud</h4>
-<span class="tag">RAG</span>
-<span class="tag">Deep Learning</span>
-<span class="tag">AWS</span>
-<span class="tag">Amazon Redshift</span>
-</div>
+        <div class="edu-item" data-aos="fade-up">
+            <div class="edu-year">2020 - 2021</div>
+            <div class="edu-title">Secondary (10th Grade)</div>
+            <p>Everwin Matriculation Higher Secondary School, Kolathur, Chennai</p>
+        </div>
+    </section>
 
-<div class="skill-cat" data-aos="fade-up" data-aos-delay="200">
-<h4>Web & Tools</h4>
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">JavaScript</span>
-<span class="tag">Streamlit</span>
-<span class="tag">Git</span>
-</div>
+    <footer>
+        <p>© 2026 Mohammed Fazal Basha | Chennai, India</p>
+    </footer>
 
-<div class="skill-cat" data-aos="fade-up" data-aos-delay="300">
-<h4>Creative</h4>
-<span class="tag">Copywriting</span>
-<span class="tag">Branding</span>
-<span class="tag">Translation</span>
-</div>
-
-</div>
-</div>
-
-<div data-aos="fade-left">
-<img src="profile.png" class="profile-img">
-</div>
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-<h2 class="section-heading" data-aos="fade-up">Experience</h2>
-
-<div class="content-card" data-aos="fade-up">
-<div class="date-label">2025 – Present</div>
-<div class="card-title">Content Translator</div>
-<ul>
-<li>Created high-engagement digital content</li>
-<li>Translated scripts for marketing</li>
-</ul>
-</div>
-</section>
-
-<!-- PROJECT -->
-<section id="projects">
-<h2 class="section-heading" data-aos="fade-up">Projects</h2>
-
-<div class="content-card" data-aos="fade-up">
-<div class="card-title">PAW CROSS</div>
-<ul>
-<li>AI + IoT wildlife detection system</li>
-<li>Real-time dashboard</li>
-</ul>
-</div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-<h2 class="section-heading" data-aos="fade-up">Certifications</h2>
-
-<div class="content-card" data-aos="fade-up">
-<ul>
-<li>AI Fundamentals – IBM</li>
-<li>AWS Cloud Computing</li>
-<li>RAG in Action</li>
-<li>Deep Learning</li>
-</ul>
-</div>
-</section>
-
-<!-- LANGUAGES -->
-<section id="languages">
-<h2 class="section-heading" data-aos="fade-up">Languages</h2>
-
-<div class="content-card" data-aos="fade-up">
-<ul>
-<li>English</li>
-<li>Tamil</li>
-<li>Hindi</li>
-<li>Urdu</li>
-<li>French</li>
-</ul>
-</div>
-</section>
-
-<footer>
-<h2>Contact</h2>
-<a href="mailto:fazalbasha57@gmail.com" class="contact-link"><i class="fas fa-envelope"></i></a>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    </script>
 </body>
 </html>
